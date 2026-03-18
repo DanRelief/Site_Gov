@@ -1,20 +1,19 @@
-﻿using System.Reflection.Metadata;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Site_Gov
 {
     internal class Login
     {
-        private string UserName { get; set }
-        private string Password { get; set; }
+        public string UserName { get; set; }
 
-        // Métodos 
+        public string Password { get; set; }
 
-        private Validador(string username, string password)
+        private validador(string username, string password)
         {
             this.UserName = username;
-            this.Password = password;
-        }
 
+        }
     }
-    
 }
