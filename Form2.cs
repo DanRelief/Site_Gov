@@ -94,7 +94,7 @@ namespace Projeto
             }
         }
 
-        //Habilitando checkbox para visualizar ou não a senha 
+        //Habilitando checkbox para visualizar ou não a senha inserida
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox2.Checked)
