@@ -1,6 +1,6 @@
 using Projeto.Front;
 
-namespace Projeto
+namespace Projeto.main
 {
     internal static class Program
     {
