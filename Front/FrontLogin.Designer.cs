@@ -1,6 +1,9 @@
-﻿namespace Projeto
+﻿using Org.BouncyCastle.Asn1.Crmf;
+using System.Xml.Linq;
+
+namespace Projeto.Front
 {
-    partial class Form1
+    partial class FrontLogin
     {
         /// <summary>
         ///  Required designer variable.

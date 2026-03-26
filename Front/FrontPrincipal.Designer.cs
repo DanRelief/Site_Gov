@@ -1,6 +1,6 @@
-﻿namespace Projeto
+﻿namespace Projeto.Front
 {
-    partial class Form3
+    partial class FrontPrincipal
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,9 @@
-﻿namespace Projeto
+﻿using Org.BouncyCastle.Asn1.Crmf;
+using System.Xml.Linq;
+
+namespace Projeto.Front
 {
-    partial class Form2
+    partial class FrontRegistro
     {
         /// <summary>
         /// Required designer variable.
@@ -116,7 +119,6 @@
             label2.Size = new Size(53, 21);
             label2.TabIndex = 10;
             label2.Text = "Nome";
-            label2.Click += label2_Click;
             // 
             // label5
             // 
@@ -144,7 +146,6 @@
             textBox4.Size = new Size(200, 23);
             textBox4.TabIndex = 21;
             textBox4.UseSystemPasswordChar = true;
-            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // label4
             // 
