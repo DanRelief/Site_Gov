@@ -6,5 +6,10 @@
         {
             InitializeComponent();
         }
+
+        private void btnCriarPonto_Click(object sender, EventArgs e)
+        {
+            new CriarPonto().ShowDialog();
+        }
     }
 }

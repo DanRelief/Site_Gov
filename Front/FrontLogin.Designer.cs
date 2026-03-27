@@ -1,6 +1,4 @@
-﻿using Org.BouncyCastle.Asn1.Crmf;
-using System.Xml.Linq;
-
+﻿
 namespace Projeto.Front
 {
     partial class FrontLogin
@@ -153,8 +151,8 @@ namespace Projeto.Front
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "FrontLogin";
+            Text = "Login";
             ResumeLayout(false);
             PerformLayout();
         }
