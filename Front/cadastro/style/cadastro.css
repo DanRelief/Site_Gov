@@ -23,6 +23,7 @@ body {
     height: 550px; 
     display: flex; 
     border-radius: 15px; /* arredondamento */
+    overflow: hidden; /* esconde o overflow do container para não sobrepor o arredondamento */
     box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* sombra, 20% transp. */
 }
 
