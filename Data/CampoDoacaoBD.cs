@@ -1,14 +1,13 @@
 using MySql.Data.MySqlClient;
-using Projeto.Data;
 using Projeto.Models;
 
-namespace Projeto.Logical
+namespace Projeto.Data
 {
 	public class PontoDoacaoService
 	{
 		private Database db = new Database();
 
-		public void Criar(PontoDoacao ponto)
+		public void CriarPontoDoacao(PontoDoacao ponto)
 		{
 			using (var con = db.GetConnection())
 			{

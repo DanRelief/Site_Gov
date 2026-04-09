@@ -1,27 +1,37 @@
-using Projeto.Data;
-using MySql.Data.MySqlClient;
+﻿using Projeto.Data;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Projeto.Logical
 {
-    public class LoginService
+    public class Login
     {
-        private Database db = new Database();
-
-        public bool ValidarLogin(string usuario, string senha)
+        public class LoginApplicationService
         {
-            using (var con = db.GetConnection())
+            private readonly LoginService _service = new LoginService();
+
+            public LoginResult Entrar(string usuario, string senha)
             {
-                con.Open();
+                if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(senha))
+                    return LoginResult.Falha("Usuário e senha são obrigatórios.");
 
-                string query = "SELECT COUNT(*) FROM user_tb WHERE usuario = @user AND senha = @pass";
+                bool valido = _service.ValidarLogin(usuario.Trim(), senha);
 
-                using (var cmd = new MySqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@user", usuario);
-                    cmd.Parameters.AddWithValue("@pass", senha);
 
-                    return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
-                }
+                if (valido)
+                    return LoginResult.Sucesso();
+                else
+                    return LoginResult.Falha("Login inválido.");
+
+            }
+
+            public record LoginResult(bool Ok, string? Mensagem)
+            {
+                public static LoginResult Sucesso() => new(true, null);
+                public static LoginResult Falha(string msg) => new(false, msg);
+
+
             }
         }
     }

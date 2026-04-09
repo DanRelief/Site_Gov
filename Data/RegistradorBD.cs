@@ -1,7 +1,6 @@
-using Projeto.Data;
 using MySql.Data.MySqlClient;
 
-namespace Projeto.Logical
+namespace Projeto.Data
 {
     public class RegisterService
     {
