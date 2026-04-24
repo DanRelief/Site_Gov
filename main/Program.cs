@@ -9,7 +9,7 @@ namespace Projeto.main
         {
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrontLogin());
+            
         }
     }
 }
