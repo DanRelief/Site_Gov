@@ -1,26 +1,13 @@
-CREATE DATABASE IF NOT EXISTS registro;
+CREATE DATABASE registro;
 USE registro;
-## DROP TABLE user_tb; USAR APENAS PARA CRIAR  USER
-
+DESCRIBE user_tb;
 CREATE TABLE user_tb(
-	id_user INT AUTO_INCREMENT PRIMARY KEY,
-    usuario VARCHAR(20),
-    senha VARCHAR(20),
-    email VARCHAR(100),
-    documento VARCHAR(20)
+	id_user INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    usuario VARCHAR(20) NOT NULL,
+    senha VARCHAR(16) NOT NULL
 );
-
--- evita duplicar admin
-INSERT INTO user_tb (usuario, senha)
-SELECT 'admin', '1234'
-WHERE NOT EXISTS (
-    SELECT 1 FROM user_tb WHERE usuario = 'admin'
-);
-
--- usuário do banco
-CREATE USER IF NOT EXISTS 'appuser'@'localhost' IDENTIFIED BY '1234';
-ALTER USER 'appuser'@'localhost' IDENTIFIED BY '1234';
-GRANT ALL PRIVILEGES ON registro.* TO 'appuser'@'localhost';
-FLUSH PRIVILEGES;
-
+INSERT INTO user_tb (usuario, senha) VALUES ('admin', '1234');
 SELECT * FROM user_tb;
+ALTER TABLE user_tb 
+ADD COLUMN email VARCHAR(40),
+ADD COLUMN documento VARCHAR(21);
