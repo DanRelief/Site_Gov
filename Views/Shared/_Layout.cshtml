@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MCMV</title>
+    
+    <link rel="stylesheet" href="~/style/indexUsuario.css" asp-append-version="true" />
+    
+    @* Permite que Views específicas injetem CSS *@
+    @RenderSection("Styles", required: false)
+
+    <style>
+            /* 1. Remove as bordas brancas da página inteira */
+            body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden; /* Evita barra de rolagem horizontal */
+                font-family: sans-serif;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+
+            /* 2. Cabeçalho Branco */
+            .top-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 4%; /* Padding menor na esquerda/direita para o logo 'correr' mais para o canto */
+                background: white;
+            }
+
+            .logo-container {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #00a878;
+                font-weight: bold;
+                line-height: 1.1;
+            }
+
+            .slogan {
+                color: #00a878;
+                font-size: 0.95rem;
+                font-weight: 500;
+            }
+
+            /* 3. Faixa Verde de Navegação*/
+            .navbar-custom {
+                background-color: #00a878;
+                width: 100%; /* Garante 100% de largura */
+                padding: 15px 0; /* Centralizar verticalmente os textos */
+            }
+
+                .navbar-custom nav {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center; /* Alinha os itens verticalmente no centro */
+                    gap: 40px;
+                }
+
+                .navbar-custom a {
+                    color: white;
+                    text-decoration: none;
+                    font-weight: bold;
+                    font-size: 0.95rem;
+                    transition: 0.3s;
+                }
+
+            /* Estilo do botão Página Inicial (Active) */
+            .active-link {
+                background-color: white;
+                color: #00a878 !important;
+                padding: 8px 18px;
+                border-radius: 5px;
+            }
+
+            /* 4. Rodapé */
+            .footer-barra {
+                background-color: #00a878;
+                height: 15px;
+                width: 100%;
+                margin-top: auto;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-header">
+            <div class="logo-container">
+                <img src="~/style/assets/logo.png" alt="Logo" style="height: 35px;" />
+                <div style="font-size: 1rem;">Minha Cidade,<br>Minha Vida</div>
+            </div>
+            <div class="slogan">Conectando quem quer ajudar com quem precisa</div>
+        </div>
+    
+        <div class="navbar-custom">
+            <nav>
+                <a asp-controller="Home" asp-action="IndexUsuario" class="active-link">Página inicial</a>
+                <a href="#">Instituições cadastradas</a>
+                <a href="#">Precisa de doação?</a>
+                <a href="#">Faça uma doação</a>
+                <a href="#">Portal da transparência</a>
+            </nav>
+        </div>
+    </header>
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <footer style="background-color: #00a878; height: 15px; width: 100%; position: fixed; bottom: 0; left: 0;">
+    </footer>
+</body>
+</html>

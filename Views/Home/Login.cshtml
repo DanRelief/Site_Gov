@@ -1,0 +1,68 @@
+﻿@model dynamic
+@{
+    Layout = null; 
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Minha Cidade, Minha Vida</title>
+    <link rel="stylesheet" href="~/style/login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="login-container">
+            <div class="welcome-section">
+                <h1>Bem-vindo(a)!</h1>
+                <p>Ainda não possui conta?</p>
+                <p>Cadastre-se como usuário ou instituição</p>
+                <button class="btn-outline" type="button" onclick="location.href='@Url.Action("Cadastro", "Home")'">Cadastre-se</button>
+                <img src="~/style/assets/grupo-pessoas.png" alt="Pessoas" class="illustration">
+                </div>
+
+                <div class="form-section">
+                    <h2>Login</h2>
+            
+                    @if (ViewBag.Erro != null)
+                    {
+                        <p style="color:red">@ViewBag.Erro</p>
+                    }
+
+                    @if (TempData["MensagemSucesso"] != null)
+                    {
+                        <div style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center; border: 1px solid #c3e6cb; font-size: 14px;">
+                            @TempData["MensagemSucesso"]
+                        </div>
+                    }
+
+                    <form asp-action="Login" method="post">
+                        <div class="input-group">
+                            <label><i class="fas fa-user"></i>CPF/CNPJ</label>
+                            <input type="text" name="documento" maxlength="14" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fas fa-lock"></i> Senha</label>
+                            <input type="password" name="senha" maxlength="20" required>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Entrar</button>
+                        <p class="footer-text">Faça agora seu cadastro e colabore com o bem-estar de sua comunidade!</p>
+                    </form>
+                </div>
+            </div>
+            <script>
+                    // Se existir o elemento de sucesso, faz ele sumir após 4 segundos
+                    setTimeout(function() {
+                        var alert = document.querySelector('[style*="background-color: #d4edda"]');
+                        if (alert) {
+                            alert.style.transition = "opacity 0.6s";
+                            alert.style.opacity = "0";
+                            setTimeout(() => alert.remove(), 600);
+                        }
+                    }, 4000);
+            </script>
+
+        </body>
+    </html>

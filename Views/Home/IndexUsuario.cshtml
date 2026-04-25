@@ -1,0 +1,33 @@
+﻿<link rel="stylesheet" href="~/style/indexUsuario.css" asp-append-version="true" />
+
+@{
+    ViewData["Title"] = "Página Inicial - Minha Cidade, Minha Vida";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="info-section">
+        <h2 class="title-green">Você Sabia?</h2>
+
+        <ul class="info-list">
+            <li>ONGs locais dependem majoritariamente de doações individuais</li>
+            <li>Muitas pessoas querem doar, mas não sabem por onde começar</li>
+            <li>Alimentos e roupas são os itens mais doados no estado de São Paulo</li>
+            <li>Mais de 60% dos brasileiros já fizeram algum tipo de doação</li>
+        </ul>
+
+        <div class="button-group">
+            <a asp-action="FacaUmaDoacao" class="btn-custom">Fazer Doação</a>
+            <a asp-action="PrecisaDeDoacao" class="btn-custom">Receber Doação</a>
+        </div>
+    </div>
+
+    <div class="map-placeholder">
+        <h3 class="map-title">Encontre uma instituição perto de você!</h3>
+        
+        @* Placeholder visual para o mapa *@
+        <div class="map-box">
+            <p>[ANÁLISE]</p>
+        </div>
+    </div>
+</div>

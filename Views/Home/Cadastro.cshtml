@@ -1,0 +1,84 @@
+﻿@{
+    // Define que esta página não usará o _Layout.cshtml global.
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Minha Cidade, Minha Vida</title>
+    <link rel="stylesheet" href="~/style/cadastro.css">
+    </head>
+    <body>
+        <div class="panel">
+            <div class="left">
+                <h1>Já possui conta?</h1>
+                <p>Acesse agora clicando em Login!</p>
+                <button id="btnLogin" type="button" onclick="location.href='@Url.Action("Login", "Home")'">
+                    Login
+                </button>
+                <img src="~/style/assets/doacao_ilust.png" class="doacao-ilust" alt="Ilustração de doação">
+                </div>
+
+                <div class="right">
+                    <h2>Cadastre-se</h2>
+
+                    @* Bloco C#: Se houver alguma mensagem de erro vinda do Controller, ela será exibida aqui *@
+                    @if (ViewBag.Erro != null)
+                    {
+                        <p style="color:red; font-size:12px;">@ViewBag.Erro</p>
+                    }
+
+                    @* asp-action="Cadastro" indica que, ao clicar no botão, os dados serão enviados para o método Cadastro no HomeController *@
+                    <form asp-action="Cadastro" method="post">
+                        <label for="user">Nome:</label>
+                        <input type="text" id="user" name="user" maxlength="50" required>
+
+                        @* Este label e input mudam dinamicamente entre CPF e CNPJ via JavaScript abaixo *@
+                        <label id="labelIdentific" for="identific">CPF:</label>
+                        <input type="text" id="identific" name="identific" maxlength="14" required>
+
+                        <div class="checkbox-area">
+                            @* Checkbox para indicar se o usuário é pessoa física ou uma Instituição *@
+                            <input type="checkbox" id="isInstit" name="isInstit" value="true">
+                            <label for="isInstit">Sou uma instituição</label>
+                        </div>
+
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required>
+
+                        <label for="confirmarSenha">Confirme a senha:</label>
+                        <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+
+                        <button id="btnRegistrar" type="submit">Registrar</button>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                    const checkbox = document.getElementById("isInstit");
+                    const label = document.getElementById("labelIdentific");
+                    const inputIdentific = document.getElementById("identific");
+
+                    // Escuta quando o usuário marca ou desmarca a caixa "Sou uma instituição"
+                    checkbox.addEventListener("change", () => {
+                        if (checkbox.checked) {
+                            // Se marcado, muda o texto para CNPJ
+                            label.innerText = "CNPJ:";
+                            inputIdentific.maxLength = 14;
+                        } else {
+                            // Se desmarcado, volta para CPF
+                            label.innerText = "CPF:";
+                            inputIdentific.maxLength = 11;
+                        }
+                        // Limpa o campo para evitar que um CPF seja enviado como CNPJ por erro
+                        inputIdentific.value = "";
+                    });
+            </script>
+        </body>
+    </html>
