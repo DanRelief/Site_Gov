@@ -1,0 +1,106 @@
+<!-- Config -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="style/assets/favicon.ico" type="image/x-icon">
+    <title>Cadastro - Minha Cidade, Minha Vida</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style/cadastro.css">
+</head>
+
+
+<!-- Conteúdo -->
+
+<body>
+
+<div class="panel">
+
+    <!-- lado esquerdo do painel de cadastro -->
+    <div class="left">
+
+        <h1>Já possui conta?</h1>
+        <p>Acesse agora clicando em Login!</p>
+
+        <!-- botão que redireciona para o login -->
+        <button id="btnLogin" type="button" onclick="redLogin()">
+            Login
+        </button>
+
+        <!-- figura ilustrativa -->
+        <img src="style/assets/doacao_ilust.png" class="doacao-ilust" alt="Ilustração de doação">
+
+    </div>
+
+    <!-- lado direito do painel de cadastro (preenchimento) -->
+    <div class="right">
+
+        <h2>Cadastre-se</h2>
+
+        <!-- Formulário -->
+        <form id="formCadastro" method="post"> <!-- Identificação / forma de envio dos dados -->
+
+            <!-- User -->
+            <label for="user">Usuário:</label>
+            <input type="text" id="user" name="user" required>
+
+
+            <!-- CPF / CNPJ -->
+            <label id="labelIdentific" for="Identific">CPF:</label>
+            <input type="text" id="identific" name="identifc" required>
+
+            <div class="checkbox-area">
+                <input type="checkbox" id="isInstit">
+                <label for="isInstit">Sou uma instituição</label>
+            </div>
+
+
+            <!-- Email -->
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+
+            <!-- Senha -->
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+
+            <!-- Confirmar senha -->
+            <label for="confirmarSenha">Confirme a senha:</label>
+            <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+
+
+            <!-- Botão de cadastro -->
+            <button id="btnRegistrar" type="submit">
+                Registrar
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Script -->
+
+<script>
+
+    // Alternar CPF / CNPJ
+    const checkbox = document.getElementById("isInstit");
+    const label = document.getElementById("labelIdentific");
+    checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+            label.innerText = "CNPJ:";
+        } else {
+            label.innerText = "CPF:";
+        }
+    });
+
+
+    // Redirecionamento para tela de login
+    function redLogin(){
+        window.location.href = "login.html"; 
+    }
+
+</script>
+</body>
+</html>

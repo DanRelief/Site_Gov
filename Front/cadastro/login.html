@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+    <title>Login - Minha Cidade, Minha Vida</title>
+    <!--Referenciando o css da tela de login-->
+    <link rel="stylesheet" href="style/login.css">
+    <!--Favicon-->
+    <link rel="shortcut icon" href="style/assets/favicon.ico" type="image/x-icon">
+    <!--Biblioteca para os ícones do campo usuário e senha -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!--Container principal do login-->
+    <div class="login-container">
+        <!--Lado verde-->
+        <div class="welcome-section">
+            <h1>Bem-vindo(a)!</h1>
+            <p>Ainda não possui conta?</p>
+            <p>Cadastre-se como usuário ou instituição</p>
+            <!--Botão parte verde, redireciona para o cadastro de novo usuários-->
+            <button class="btn-outline" id="btnLogin" type="button" onclick="redLogin()"> Cadastre-se</button>
+            <img src="style/assets/grupo-pessoas.png" alt="Pessoas" class="illustration">
+        </div>
+
+        <!--Parte branca-->
+        <div class="form-section">
+            <h2>Login</h2>
+            <!--Envia os dados pelo método POST-->
+            <form method="post">
+                <!--Campo para inserir dados do usuário-->
+                <div class="input-group">
+                    <label><i class="fas fa-user"></i> Usuário</label>
+                    <!--Torna obrigatório o preenchimento do usuário-->
+                    <input type="text" name="usuario" required>
+                </div>
+
+                <!--Campo para inserir a senha-->
+                <div class="input-group">
+                    <label><i class="fas fa-lock"></i> Senha</label>
+                    <!--Oculta os caracteres inseridos-->
+                    <input type="password" name="senha" required>
+                </div>
+
+                <!--Botão para enviar os dados inseridos-->
+                <button type="submit" class="btn-primary">Entrar</button>
+                <!--Texto abaixo do botão-->
+                <p class="footer-text">Faça agora seu cadastro e colabore com o bem-estar de sua comunidade!</p>
+            </form>
+        </div>
+    </div>
+
+    <!--Funcão que redireciona para a tela de cadastro de novos usuários-->
+    <script>
+        function redLogin() {
+            window.location.href = "cadastro.html";
+        }
+    </script>   
+
+</body>
+</html >
