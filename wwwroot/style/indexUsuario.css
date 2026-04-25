@@ -1,0 +1,79 @@
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.info-section {
+    flex: 1;
+}
+
+.title-green {
+    color: #00a878;
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.info-list {
+    list-style-type: disc;
+    line-height: 2.2;
+    font-size: 1.1rem;
+    color: #333;
+    padding-left: 20px;
+}
+
+.button-group {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn-custom {
+    background-color: #00a878;
+    color: white !important; /* Força a cor mesmo sendo link */
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-custom:hover {
+    background-color: #008f66;
+    transform: scale(1.05);
+}
+
+/* Estilo do Card do Mapa */
+.map-placeholder {
+    background-color: #d3d3d3;
+    width: 450px;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.map-title {
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.map-box {
+    background-color: #bbb;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #999;
+}
